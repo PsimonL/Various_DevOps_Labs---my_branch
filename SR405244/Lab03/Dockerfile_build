@@ -1,0 +1,23 @@
+# Bazujac na wersji obrazu golang 1.16
+FROM golang:latest 
+
+
+# Instalacja potrzebnych dependencji
+RUN apt-get update && apt-get install -y make git golang go-bindata
+
+# Miejsce pracy
+WORKDIR /go/src/github.com/containerd/nydus-snapshotter
+
+# Klonuj repozytorium do WORKDIRa
+RUN git clone https://github.com/containerd/nydus-snapshotter.git .
+
+# Pobranie zależności, dla ktorej po pierwszej probie builda wypadal blad o braku wpisu w pliku go.sum
+# UWAGA - poniższa część skryptu dla wersji golanga niższej niż 1.17
+#RUN go mod download github.com/container-orchestrated-devices/container-device-interface
+#RUN go get github.com/prometheus/client_golang/prometheus@v1.14.0
+#RUN go get go get github.com/containerd/containerd/protobuf@v1.7.0
+#RUN go get k8s.io/kube-openapi/pkg/common@v0.0.0-20230308215209-15aac26d736a
+#RUN go get github.com/containerd/nydus-snapshotter/cmd/containerd-nydus-grpc
+
+# Wykonaj builda
+CMD ["make"]

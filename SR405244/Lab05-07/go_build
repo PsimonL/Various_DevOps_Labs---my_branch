@@ -1,0 +1,16 @@
+FROM golang:latest
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y nano
+
+RUN git clone https://github.com/PsimonL/REST_API_calculator_for_Jenkins_pipeline.git
+
+WORKDIR /app/REST_API_calculator_for_Jenkins_pipeline
+
+RUN go build -o REST_API_calculator_for_Jenkins_pipeline
+
+EXPOSE 3001
+
+CMD ["./REST_API_calculator_for_Jenkins_pipeline"]
+# CMD ["bash"]

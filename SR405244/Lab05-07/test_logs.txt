@@ -1,0 +1,19 @@
+Below logs for tests:
+
+=== RUN   TestHelloHandler
+GET requested
+--- PASS: TestHelloHandler (0.00s)
+=== RUN   TestAddHandler
+Addition: 2 + 3 = 5
+--- PASS: TestAddHandler (0.00s)
+=== RUN   TestSubtractHandler
+Subtraction: 3 - 5 = 2
+--- PASS: TestSubtractHandler (0.00s)
+=== RUN   TestMultiplyHandler
+Multiplication: 2 * 3 = 6
+--- PASS: TestMultiplyHandler (0.00s)
+=== RUN   TestDivideHandler
+Division: 6 / 3 = 2
+--- PASS: TestDivideHandler (0.00s)
+PASS
+ok  	awesomeProject	0.025s

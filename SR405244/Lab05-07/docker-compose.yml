@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+ 
+  builder:
+    build:
+      context: .
+      dockerfile: go_build
+    image: go_build_img
+    container_name: go_build_cont
+  
+  tester:
+    build:
+      context: .
+      dockerfile: go_test
+    image: go_test_img
+    container_name: go_test_cont
+    depends_on:
+      - builder

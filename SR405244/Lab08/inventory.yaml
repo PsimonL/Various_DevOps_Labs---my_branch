@@ -1,0 +1,15 @@
+# File should be used at control node aka "orchestrator"
+orchestrators:
+  hosts:
+    central-node:
+      ansible_host: fedora-server
+
+endpoints:
+  hosts:
+    node1:
+      ansible_host: ubuntu-host
+
+virtualmachines:
+  hosts:
+    vm01:
+      ansible_host: ubuntu-host

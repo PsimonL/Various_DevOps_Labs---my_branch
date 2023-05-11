@@ -1,0 +1,6 @@
+# Bazowanie na poprzednim Dockerfile
+FROM dockerfile_build:latest
+
+# Uruchamiamy testy
+# CMD ["make", "test"]
+CMD ["make", "test"]

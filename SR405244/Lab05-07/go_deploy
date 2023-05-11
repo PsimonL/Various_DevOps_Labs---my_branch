@@ -1,0 +1,14 @@
+FROM ubuntu:latest
+
+WORKDIR /app
+
+RUN apt-get update && \
+    apt-get install -y nano && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY REST_API_calculator_for_Jenkins_pipeline /app/REST_API_calculator_for_Jenkins_pipeline
+
+EXPOSE 3001
+
+CMD ["./REST_API_calculator_for_Jenkins_pipeline"]
+# CMD ["/bin/bash"]

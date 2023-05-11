@@ -1,0 +1,20 @@
+- name: Build and Run docker container based on go_deploy at ubuntu-host
+  hosts: virtualmachines
+  tasks:
+    - name: Build Docker image
+      docker_image:
+        source: build
+        build:
+          path: /home/szymonr/Desktop/workspace/MDO2023_INO/INO/GCL2/SR405244/Lab05-07/
+          dockerfile: go_deploy
+        name: go_deploy_img
+        tag: latest
+      delegate_to: ubuntu-host
+
+    - name: Run Docker container
+      docker_container:
+        name: go_deploy_cont
+        image: go_deploy_img
+        ports:
+          - 3002:3002
+

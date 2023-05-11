@@ -1,0 +1,16 @@
+- name: Create container
+  hosts: virtualmachines
+  tasks:
+    - name: Pull the srpl/go-deploy-img:91 image from DockerHub
+      docker_image:
+        name: srpl/go-deploy-img
+        source: pull
+        tag: 91
+
+    - name: Create a container from srpl/go-deploy-img:91 image
+      docker_container:
+        name: go-deploy-cont
+        image: srpl/go-deploy-img:91
+        ports:
+          - "3001:3001"
+        detach: true

@@ -1,0 +1,7 @@
+
+FROM go_build_img
+
+WORKDIR /app/REST_API_calculator_for_Jenkins_pipeline
+
+CMD ["go", "test", "-v"]
+#CMD ["bash"]

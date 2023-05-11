@@ -1,0 +1,9 @@
+FROM base_image:latest
+
+WORKDIR /work
+RUN git clone https://github.com/containerd/nydus-snapshotter.git .
+RUN make build
+VOLUME /volume
+WORKDIR bin
+
+#CMD ["cp", "-r", "container-snapshotter-grpc", "/volume"]

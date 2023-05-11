@@ -1,0 +1,14 @@
+docker build --no-cache -t go_build_img -f go_build .
+docker run -d --name=go_build_cont go_build_img
+docker exec -it go_build_cont sh
+docker build -t go_deploy_img -f go_deploy .
+
+docker rm -f go_build_cont && docker image rm -f go_build_img
+docker container logs go_test_cont
+
+docker cp go_build_cont:/app/REST_API_calculator_for_Jenkins_pipeline/REST_API_calculator_for_Jenkins_pipeline /var/jenkins_home/workspace/API_calc_pipe/MDO2023_INO
+
+sh 'docker save go-deploy-img:latest -o go-deploy-img:latest.tar'
+archiveArtifacts artifacts: 'go-deploy-img:latest.tar', excludes: '', fingerprint: true
+
+https://www.youtube.com/watch?v=6YZvp2GwT0A

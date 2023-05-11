@@ -1,0 +1,15 @@
+- name: Cleanup Docker container and image
+  hosts: vm01
+  become: true
+
+  tasks:
+  - name: Stop and remove Docker container
+    docker_container:
+      name: go_deploy_cont
+      state: stopped
+      state: absent
+
+  - name: Remove Docker image
+    docker_image:
+      name: go_deploy_img
+      state: absent

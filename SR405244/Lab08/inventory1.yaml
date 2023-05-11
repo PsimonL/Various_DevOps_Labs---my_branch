@@ -1,0 +1,8 @@
+# File should be used at control node aka "orchestrator"
+virtualmachines:
+  hosts:
+    vm01:
+#      ansible_host: 192.168.65.128
+      ansible_host: ubuntu-host
+#    vm02:
+#      ansible_host: centos-host
