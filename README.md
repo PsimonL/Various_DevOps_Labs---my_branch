@@ -4,4 +4,5 @@
 Based on repository created by one of professors:  
 https://github.com/InzynieriaOprogramowaniaAGH/MDO2023_INO  
 
-You can find my original branch at **SR405244**.
+You can find my original branch at **SR405244** (https://github.com/InzynieriaOprogramowaniaAGH/MDO2023_INO/tree/SR405244).
+Basically I've been coping&pasting from one repo to current one - no new changes with reference to original. 
