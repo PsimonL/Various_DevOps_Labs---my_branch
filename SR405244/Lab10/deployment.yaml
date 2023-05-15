@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: go-deploy-pod-1
+  name: go-deploy-pod-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-deploy-pod-1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: go-deploy-pod-1
+    spec:
+      containers:
+      - image: srpl/go-deploy-img:91
+        name: go-deploy-img
+        resources: {}
+status: {}
