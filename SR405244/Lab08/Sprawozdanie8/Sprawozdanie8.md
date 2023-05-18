@@ -109,10 +109,12 @@ ponieważ nie byłem wstanie tego zrobić - jakakolwiek próba połączenia koń
 FTP (File Transfer Protocol) używany na systemach OS Linux. Jednakże nic to nie zmieniło - zawiesznie konsoli 
 "227 Entering Passive Mode (192,168,65,128,73,121).", po czym wyrzucało "zbyt długi czas oczekiwania".  
 
+------------------------------------------------------------------------------------------------------------------------
 **NOTES:**
 ```
 Problem z FTP występował z powodu kwesti związanych z SELinux.
 ```
+------------------------------------------------------------------------------------------------------------------------
 
 Kolejno próbowałem zmienić pliki konfiguracyjne:
 ```
