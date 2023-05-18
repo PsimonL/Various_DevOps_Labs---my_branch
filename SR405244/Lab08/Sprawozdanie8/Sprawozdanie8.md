@@ -107,7 +107,13 @@ Kolejno po zainstalowaniu FTP i FTPS na maszynach wirtualnych należało uruchom
 ponieważ nie byłem wstanie tego zrobić - jakakolwiek próba połączenia kończyła się "connection timed out". Wpierw pomyślałem
 że to porty, jednakże są one otwarte. Próbwałem rówież wykorzystać vsftpd ("very secure FTP daemon"), czyli bardzo popularny serwer 
 FTP (File Transfer Protocol) używany na systemach OS Linux. Jednakże nic to nie zmieniło - zawiesznie konsoli 
-"227 Entering Passive Mode (192,168,65,128,73,121).", po czym wyrzucało "zbyt długi czas oczekiwania". 
+"227 Entering Passive Mode (192,168,65,128,73,121).", po czym wyrzucało "zbyt długi czas oczekiwania".  
+
+**NOTES:**
+```
+Problem z FTP występował z powodu kwesti związanych z SELinux.
+```
+
 Kolejno próbowałem zmienić pliki konfiguracyjne:
 ```
 sudo nano /etc/vsftpd.conf

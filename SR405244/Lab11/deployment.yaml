@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: go-deploy-pod-lab11
+    app: go-deploy-k8s
   name: go-deploy-pod-lab11
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
-      app: go-deploy-pod-lab11
+      app: go-deploy-k8s
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: go-deploy-pod-lab11
+        app: go-deploy-k8s
     spec:
       containers:
       - image: srpl/go-deploy-img:91
