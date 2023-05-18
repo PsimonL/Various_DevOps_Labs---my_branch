@@ -33,7 +33,7 @@ Natomiast zapoznanie z tematyką Kubernetes wedle źródeł:
 - https://kubernetes.io/docs/concepts/overview/
 - https://kubernetes.io/docs/tutorials/kubernetes-basics/
 - https://kubernetes.io/docs/tasks/administer-cluster/  
-itd  
+itd.
 
 ## Analiza posiadanego kontenera
 Celem tego podpunktu było przygotowanie obrazu Deploy z aplikacją, zatem najlepiej, aby ta nadawała się do pracy w kontenerze.
