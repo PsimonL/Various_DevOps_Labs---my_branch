@@ -1,0 +1,24 @@
+        stage('Deploy') {
+            steps {
+                sh 'echo "Start Deploy"'
+                script {
+                    dir('MDO2023_INO') {
+                        sh "docker build -t go_deploy_img:latest -f ${DOCKER_BUILD_DIR}/go_deploy ${DOCKER_BUILD_DIR}"
+                        sh "docker run -d -p 3001:3001 --name go_deploy_cont go_deploy_img:latest"
+                        sleep(5)
+                        sh "docker logs go_deploy_cont"
+                        sh "docker ps -a"
+                        sh "ls -a"
+                        
+                        
+                        sh 'bash time-check.sh'
+                        
+                        
+                        sh "docker container stop go_deploy_cont"
+                        sh "docker container rm -f go_deploy_cont"
+                        sh "kubectl delete deployment go-deploy-pod-lab11"
+                    }
+                }
+                sh 'echo "Deploy finished"'
+            }
+        }

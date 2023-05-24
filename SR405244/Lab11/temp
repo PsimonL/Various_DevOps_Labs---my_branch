@@ -6,11 +6,16 @@ metadata:
     kubernetes.io/change-cause: "replicas: 10, img tag: 91"
 spec:
   replicas: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 1
   selector:
     matchLabels:
         app.kubernetes.io/name: go-deploy-k8s
         app.kubernetes.io/instance: go-deploy-k8s-final
-        app.kubernetes.io/version: "1.1.1" 
+        app.kubernetes.io/version: "1.1.1" # dowolna wersja wdrożenia
         app.kubernetes.io/managed-by: none
         app.kubernetes.io/component: REST-API-server
   template:
@@ -18,13 +23,15 @@ spec:
       labels:
         app.kubernetes.io/name: go-deploy-k8s
         app.kubernetes.io/instance: go-deploy-k8s-final
-        app.kubernetes.io/version: "1.1.1" 
+        app.kubernetes.io/version: "1.1.1" # dowolna wersja wdrożenia
         app.kubernetes.io/managed-by: none
         app.kubernetes.io/component: REST-API-server
+        
     spec:
       containers:
-        - name: go-deploy-img
-          image: srpl/go-deploy-img:91
+        - image: srpl/go-deploy-img:91
+          name: go-deploy-img
           ports:
             - containerPort: 3001
           resources: {}
+        
