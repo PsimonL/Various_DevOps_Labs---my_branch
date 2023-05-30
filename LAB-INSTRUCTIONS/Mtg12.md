@@ -20,13 +20,14 @@
  * Zbadaj stan za pomocą ```kubectl rollout status```
 
 ### Przygotowanie nowego obrazu
- * Zarejestruj nową wersję swojego obrazu (w Docker Hub lub lokalnie)
+ * Zarejestruj nową wersję swojego obrazu `Deploy` (w Docker Hub lub lokalnie)
  * Upewnij się, że dostępne są dwie co najmniej wersje obrazu z wybranym programem
+ * Jeżeli potrzebny jest "gotowiec" z powodu problemów z `Deploy`, można użyć np `httpd`, ale powinien to być "własny" kontener: zmodyfikowany względem oryginału i opublikowany na własnym koncie DH.
  * Będzie to wymagać 
    * przejścia przez pipeline dwukrotnie, lub
    * ręcznego zbudowania dwóch wersji, lub
    * przepakowania wybranego obrazu samodzielnie np przez ```commit```
- * Przyotuj wersję obrazu, którego uruchomienie kończy się błędem
+ * Przygotuj wersję obrazu, którego uruchomienie kończy się błędem
   
 ### Zmiany w deploymencie
  * Aktualizuj plik YAML z wdrożeniem i przeprowadzaj je ponownie po zastosowaniu następujących zmian:
