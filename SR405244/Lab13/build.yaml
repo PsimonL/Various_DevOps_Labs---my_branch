@@ -1,0 +1,52 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - ino_dev
+
+#on:
+#  pull_request:
+#    branches:
+#      - ino_dev
+
+jobs:
+  build:
+    # GitHub-hosted runners
+    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+    # https://stackoverflow.com/questions/70959954/error-waiting-for-a-runner-to-pick-up-this-job-using-github-actions
+
+    # Working OS for workflow/job
+    runs-on: ubuntu-latest # ubuntu-21.04
+
+    steps:
+      - name: Pull code for workflow env
+        # Official actions provided by GitHub to download source code to work env for workflow - in my case latest Ubuntu version
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        # Official actions provided by GitHub to set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.17'
+
+      - name: Install dependencies
+        # Download all dependencies required for Go build procedure for my project (Rest Api GO calculator).
+        run: go mod download
+
+      - name: Build
+        # Compile source code and save it as binary, executable file.
+        run: go build -o REST_API_calculator_for_Jenkins_pipeline
+
+      - name: Configure Git
+        # Configure IDs for user which are going to bed used during commit operation.
+        run: |
+          git config --global user.email "szymon0r0official@gmail.com"
+          git config --global user.name "Szymon Rogowski"
+
+      - name: Commit changes
+        # Finally commit changes, and next commit goes into remote ino_dev, which is in procedure of pull request to master branch.
+        run: |
+          git add .
+          git commit -m "Added build.yaml, check if build passes"
+          git push origin ino_dev
